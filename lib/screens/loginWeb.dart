@@ -1,3 +1,5 @@
+// ignore_for_file: camel_case_types
+
 import 'dart:io';
 
 import 'package:flutter/foundation.dart';
@@ -68,7 +70,16 @@ class _loginWebState extends State<loginWeb> {
       body: Container(
         width: screenWidth,
         height: screenHeight,
-        color: Colors.red,
+        decoration: const BoxDecoration(
+          color: Color.fromARGB(170, 1, 43, 133),
+          image: DecorationImage(
+            image: AssetImage(
+              'lib/assets/addu.jpeg',
+            ),
+            fit: BoxFit.cover,
+            opacity: 0.2,
+          ),
+        ),
         child: Center(
           child: Card(
             margin: const EdgeInsets.all(100),
@@ -101,15 +112,31 @@ class _loginWebState extends State<loginWeb> {
                       ),
                     ],
                   ),
-                  const TextField(
-                    decoration: InputDecoration(labelText: 'Email'),
+                  const Text(
+                    'THE ADDU ACCREDITED HOUSE FINDER',
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      color: Color.fromARGB(255, 101, 191, 216),
+                      fontSize: 18,
+                      letterSpacing: 0,
+                      fontWeight: FontWeight.w900,
+                    ),
                   ),
-                  const SizedBox(height: 16),
-                  const TextField(
-                    obscureText: true,
-                    decoration: InputDecoration(labelText: 'Password'),
+                  Padding(
+                    padding: const EdgeInsets.all(50.0),
+                    child: TextField(
+                      decoration: InputDecoration(labelText: 'Email'),
+                    ),
                   ),
-                  const SizedBox(height: 16),
+                  SizedBox(height: 16),
+                  Padding(
+                    padding: const EdgeInsets.all(50.0),
+                    child: TextField(
+                      obscureText: true,
+                      decoration: InputDecoration(labelText: 'Password'),
+                    ),
+                  ),
+                  SizedBox(height: 16),
                   ElevatedButton(
                     onPressed: () async {
                       try {

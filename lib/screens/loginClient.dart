@@ -5,7 +5,6 @@ import 'package:google_sign_in/google_sign_in.dart';
 import 'package:student_housing/main.dart';
 import 'package:student_housing/screens/dashboard.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
-import 'package:student_housing/screens/dashboardClient.dart';
 
 class LoginClientWidget extends StatefulWidget {
   static const routeName = 'loginClientWidget';
@@ -31,7 +30,7 @@ class _LoginClientWidgetState extends State<LoginClientWidget> {
       setState(() {
         userId = data.session?.user.id;
         if (userId != null) {
-          Navigator.pushReplacementNamed(context, dashboardClient.routeName);
+          Navigator.pushReplacementNamed(context, dashboard.routeName);
         }
       });
     });
@@ -287,7 +286,7 @@ class _LoginClientWidgetState extends State<LoginClientWidget> {
                                       supabase.auth.signInAnonymously();
 
                                       Navigator.popAndPushNamed(
-                                          context, dashboardClient.routeName);
+                                          context, dashboard.routeName);
                                     },
                                     style: ElevatedButton.styleFrom(
                                       foregroundColor: const Color(0xFF060233),
@@ -366,7 +365,7 @@ class _LoginClientWidgetState extends State<LoginClientWidget> {
                                   supabase.auth.signInAnonymously();
 
                                   Navigator.popAndPushNamed(
-                                      context, dashboardClient.routeName);
+                                      context, dashboard.routeName);
                                 },
                                 style: ElevatedButton.styleFrom(
                                   foregroundColor: const Color(0xFF060233),
