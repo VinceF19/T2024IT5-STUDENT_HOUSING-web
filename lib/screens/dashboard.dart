@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:student_housing/main.dart';
+import 'package:student_housing/screens/components/itemDetails.dart';
 import 'package:student_housing/screens/loginWeb.dart';
 import 'package:student_housing/screens/components/itemCard.dart';
 
@@ -16,7 +17,7 @@ class _dashboardState extends State<dashboard> {
   List<Map<String, dynamic>> items = [];
 
   Future<void> fetchData() async {
-    final data = await supabase.from('dorm').select('*');
+    final data = await supabase.from('items').select('*');
     setState(() {
       items = data;
     });
@@ -78,11 +79,25 @@ class _dashboardState extends State<dashboard> {
                       return ItemCard(
                         id: items[index]['id'].toString(),
                         name: items[index]['name'],
+                        description: items[index]['description'],
                         address: items[index]['address'],
-                        imageurl: items[index]['imageurl'],
-                        screenWidth: screenWidth * .25,
-                        initialHeight: screenHeight * .30,
-                        initialWidth: screenWidth * .25,
+                        photoURL: items[index]['photoURL'],
+                        price: items[index]['price'].toString(),
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => ItemDetails(
+                                id: items[index]['id'].toString(),
+                                name: items[index]['name'],
+                                description: items[index]['description'],
+                                address: items[index]['address'],
+                                photoURL: items[index]['photoURL'],
+                                price: items[index]['price'].toString(),
+                              ),
+                            ),
+                          );
+                        },
                       );
                     },
                   ).toList(),
