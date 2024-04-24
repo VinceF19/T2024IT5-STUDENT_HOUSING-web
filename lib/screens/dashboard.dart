@@ -39,7 +39,10 @@ class _dashboardState extends State<dashboard> {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           mainAxisSize: MainAxisSize.max,
           children: [
-            const Text('Dashboard'),
+            const Text(
+              'Dashboard',
+              style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+            ),
             ElevatedButton(
               onPressed: () {
                 supabase.auth.signOut();
@@ -51,59 +54,68 @@ class _dashboardState extends State<dashboard> {
         ),
       ),
       body: Container(
+        decoration: const BoxDecoration(
+          color: Color.fromARGB(170, 1, 43, 133),
+          image: DecorationImage(
+            image: AssetImage(
+              'lib/assets/addu.jpeg',
+            ),
+            fit: BoxFit.cover,
+            opacity: 0.2,
+          ),
+        ),
         width: screenWidth,
         height: screenHeight,
-        color: const Color(0xFFFCF7E6),
-        padding: const EdgeInsets.only(
-          left: 20,
-          right: 20,
-          bottom: 20,
-        ),
+        padding: const EdgeInsets.all(20),
         child: Container(
           padding: const EdgeInsets.all(10),
           decoration: BoxDecoration(
             color: const Color.fromARGB(255, 236, 223, 196),
             borderRadius: BorderRadius.circular(20),
           ),
-          child: ListView(
-            children: [
-              Align(
-                alignment: Alignment.center,
-                child: Wrap(
-                  crossAxisAlignment: WrapCrossAlignment.center,
-                  spacing: 15,
-                  alignment: WrapAlignment.start,
-                  children: List.generate(
-                    items.length,
-                    (index) {
-                      return ItemCard(
-                        id: items[index]['id'].toString(),
-                        name: items[index]['name'],
-                        description: items[index]['description'],
-                        address: items[index]['address'],
-                        photoURL: items[index]['photoURL'],
-                        price: items[index]['price'].toString(),
-                        onTap: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => ItemDetails(
-                                id: items[index]['id'].toString(),
-                                name: items[index]['name'],
-                                description: items[index]['description'],
-                                address: items[index]['address'],
-                                photoURL: items[index]['photoURL'],
-                                price: items[index]['price'].toString(),
+          child: Container(
+            width: screenWidth,
+            height: screenHeight,
+            child: ListView(
+              children: [
+                Align(
+                  alignment: Alignment.center,
+                  child: Wrap(
+                    crossAxisAlignment: WrapCrossAlignment.center,
+                    spacing: 15,
+                    alignment: WrapAlignment.start,
+                    children: List.generate(
+                      items.length,
+                      (index) {
+                        return ItemCard(
+                          id: items[index]['id'].toString(),
+                          name: items[index]['name'],
+                          description: items[index]['description'],
+                          address: items[index]['address'],
+                          photoURL: items[index]['photoURL'],
+                          price: items[index]['price'].toString(),
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => ItemDetails(
+                                  id: items[index]['id'].toString(),
+                                  name: items[index]['name'],
+                                  description: items[index]['description'],
+                                  address: items[index]['address'],
+                                  photoURL: items[index]['photoURL'],
+                                  price: items[index]['price'].toString(),
+                                ),
                               ),
-                            ),
-                          );
-                        },
-                      );
-                    },
-                  ).toList(),
+                            );
+                          },
+                        );
+                      },
+                    ).toList(),
+                  ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         ),
       ),

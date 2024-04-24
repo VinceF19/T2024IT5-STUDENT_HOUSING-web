@@ -30,22 +30,51 @@ class ItemCard extends StatelessWidget {
         child: SizedBox(
           width: double.infinity,
           height: 200,
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              SizedBox(
-                width: 100,
-                height: 100,
-                child: Image.network(
-                  photoURL,
-                  fit: BoxFit.cover,
+          child: Padding(
+            padding: const EdgeInsets.all(20.0),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                SizedBox(
+                  width: 200,
+                  height: 200,
+                  child: Image.network(
+                    photoURL,
+                    fit: BoxFit.cover,
+                  ),
                 ),
-              ),
-              Text(name),
-              Text(address),
-              Text(description),
-              Text(price),
-            ],
+                SizedBox(width: 50),
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      Flexible(
+                        child: Text(
+                          name,
+                          style: TextStyle(
+                              fontSize: 20, fontWeight: FontWeight.bold),
+                          overflow: TextOverflow.ellipsis,
+                          maxLines: 1,
+                        ),
+                      ),
+                      Flexible(
+                        child: Text(
+                          address,
+                          style: TextStyle(fontSize: 16),
+                          overflow: TextOverflow.ellipsis,
+                          maxLines: 2,
+                        ),
+                      ),
+                      Text(
+                        'Price: $price pesos',
+                        style: TextStyle(fontSize: 16),
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            ),
           ),
         ),
       ),
