@@ -1,7 +1,6 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:student_housing/screens/dashboard.dart';
-import 'package:student_housing/screens/loginClient.dart';
 import 'package:student_housing/screens/loginWeb.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
