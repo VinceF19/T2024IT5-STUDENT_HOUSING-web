@@ -33,12 +33,12 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        useMaterial3: true,
-        inputDecorationTheme: const InputDecorationTheme(
-          focusedBorder: UnderlineInputBorder(borderSide: BorderSide(color: Colors.white)),
-        )
-      ),
-      home: const LoginClientWidget(),
+          useMaterial3: true,
+          inputDecorationTheme: const InputDecorationTheme(
+            focusedBorder: UnderlineInputBorder(
+                borderSide: BorderSide(color: Colors.white)),
+          )),
+      home: const loginWeb(),
     );
   }
 }

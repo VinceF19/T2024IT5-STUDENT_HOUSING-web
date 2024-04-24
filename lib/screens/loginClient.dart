@@ -3,7 +3,7 @@ import 'dart:io';
 import 'package:flutter/foundation.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:student_housing/main.dart';
-import 'package:student_housing/screens/dashboard.dart'; // Adjust import as needed
+import 'package:student_housing/screens/dashboard.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 import 'package:student_housing/screens/dashboardClient.dart';
 
@@ -96,17 +96,17 @@ class _LoginClientWidgetState extends State<LoginClientWidget> {
             children: [
               Container(
                 width: screenWidth,
-                        height: screenHeight,
-                        decoration: const BoxDecoration(
-                          color: Color.fromARGB(170, 1, 43, 133),
-                          image: DecorationImage(
-                            image: AssetImage(
-                              'lib/assets/addu.jpeg',),
-                              fit: BoxFit.cover,
-                            opacity: 0.2,
-                          ),
-                          
-                        ),
+                height: screenHeight,
+                decoration: const BoxDecoration(
+                  color: Color.fromARGB(170, 1, 43, 133),
+                  image: DecorationImage(
+                    image: AssetImage(
+                      'lib/assets/addu.jpeg',
+                    ),
+                    fit: BoxFit.cover,
+                    opacity: 0.2,
+                  ),
+                ),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   mainAxisSize: MainAxisSize.max,
@@ -130,8 +130,8 @@ class _LoginClientWidgetState extends State<LoginClientWidget> {
                             const Align(
                               alignment: AlignmentDirectional(0, 0),
                               child: Padding(
-                                padding:
-                                    EdgeInsetsDirectional.fromSTEB(10, 70, 10, 0),
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    10, 70, 10, 0),
                                 child: Row(
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   children: [
@@ -150,7 +150,8 @@ class _LoginClientWidgetState extends State<LoginClientWidget> {
                                       'DORMS',
                                       textAlign: TextAlign.center,
                                       style: TextStyle(
-                                        color: Color.fromARGB(255, 101, 191, 216),
+                                        color:
+                                            Color.fromARGB(255, 101, 191, 216),
                                         fontFamily: 'Readex Pro',
                                         fontSize: 60,
                                         letterSpacing: 0,
@@ -284,9 +285,9 @@ class _LoginClientWidgetState extends State<LoginClientWidget> {
                                   child: ElevatedButton(
                                     onPressed: () {
                                       supabase.auth.signInAnonymously();
-                                  
-                                  Navigator.popAndPushNamed(context, dashboardClient.routeName );
 
+                                      Navigator.popAndPushNamed(
+                                          context, dashboardClient.routeName);
                                     },
                                     style: ElevatedButton.styleFrom(
                                       foregroundColor: const Color(0xFF060233),
@@ -363,9 +364,9 @@ class _LoginClientWidgetState extends State<LoginClientWidget> {
                               child: ElevatedButton(
                                 onPressed: () async {
                                   supabase.auth.signInAnonymously();
-                                  
-                                  Navigator.popAndPushNamed(context, dashboardClient.routeName );
 
+                                  Navigator.popAndPushNamed(
+                                      context, dashboardClient.routeName);
                                 },
                                 style: ElevatedButton.styleFrom(
                                   foregroundColor: const Color(0xFF060233),
@@ -391,7 +392,6 @@ class _LoginClientWidgetState extends State<LoginClientWidget> {
                   ],
                 ),
               ),
-            
             ],
           ),
         ),
