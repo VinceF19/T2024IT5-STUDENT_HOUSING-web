@@ -3,6 +3,7 @@ import 'package:student_housing/main.dart';
 import 'package:student_housing/screens/components/itemDetails.dart';
 import 'package:student_housing/screens/loginWeb.dart';
 import 'package:student_housing/screens/components/itemCard.dart';
+import 'package:student_housing/screens/createCard.dart';
 
 class dashboard extends StatefulWidget {
   static const routeName = '/dashboard';
@@ -45,6 +46,12 @@ class _dashboardState extends State<dashboard> {
             ),
             ElevatedButton(
               onPressed: () {
+                Navigator.pushReplacementNamed(context, CreateCard.routeName);
+              },
+              child: const Icon(Icons.add),
+            ),
+            ElevatedButton(
+              onPressed: () {
                 supabase.auth.signOut();
                 Navigator.pushReplacementNamed(context, loginWeb.routeName);
               },
@@ -55,7 +62,7 @@ class _dashboardState extends State<dashboard> {
       ),
       body: Container(
         decoration: const BoxDecoration(
-          color: Color.fromARGB(170, 1, 43, 133),
+          color: Color(0xf252F7C),
           image: DecorationImage(
             image: AssetImage(
               'lib/assets/addu.jpeg',
@@ -70,7 +77,7 @@ class _dashboardState extends State<dashboard> {
         child: Container(
           padding: const EdgeInsets.all(10),
           decoration: BoxDecoration(
-            color: const Color.fromARGB(255, 236, 223, 196),
+            color: Color.fromARGB(255, 250, 247, 246),
             borderRadius: BorderRadius.circular(20),
           ),
           child: Container(
@@ -87,28 +94,31 @@ class _dashboardState extends State<dashboard> {
                     children: List.generate(
                       items.length,
                       (index) {
-                        return ItemCard(
-                          id: items[index]['id'].toString(),
-                          name: items[index]['name'],
-                          description: items[index]['description'],
-                          address: items[index]['address'],
-                          photoURL: items[index]['photoURL'],
-                          price: items[index]['price'].toString(),
-                          onTap: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => ItemDetails(
-                                  id: items[index]['id'].toString(),
-                                  name: items[index]['name'],
-                                  description: items[index]['description'],
-                                  address: items[index]['address'],
-                                  photoURL: items[index]['photoURL'],
-                                  price: items[index]['price'].toString(),
+                        return SizedBox(
+                          width: screenWidth * .4,
+                          child: ItemCard(
+                            id: items[index]['id'].toString(),
+                            name: items[index]['name'],
+                            description: items[index]['description'],
+                            address: items[index]['address'],
+                            photoURL: items[index]['photoURL'],
+                            price: items[index]['price'].toString(),
+                            onTap: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => ItemDetails(
+                                    id: items[index]['id'].toString(),
+                                    name: items[index]['name'],
+                                    description: items[index]['description'],
+                                    address: items[index]['address'],
+                                    photoURL: items[index]['photoURL'],
+                                    price: items[index]['price'].toString(),
+                                  ),
                                 ),
-                              ),
-                            );
-                          },
+                              );
+                            },
+                          ),
                         );
                       },
                     ).toList(),

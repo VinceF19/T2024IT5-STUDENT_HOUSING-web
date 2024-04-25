@@ -26,7 +26,7 @@ class ItemCard extends StatelessWidget {
         onTap();
       },
       child: Card(
-        color: Color.fromARGB(255, 145, 122, 76),
+        color: Color(0xFF353E64),
         child: SizedBox(
           width: double.infinity,
           height: 200,
@@ -53,7 +53,9 @@ class ItemCard extends StatelessWidget {
                         child: Text(
                           name,
                           style: TextStyle(
-                              fontSize: 20, fontWeight: FontWeight.bold),
+                              fontSize: 20,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.white),
                           overflow: TextOverflow.ellipsis,
                           maxLines: 1,
                         ),
@@ -61,14 +63,14 @@ class ItemCard extends StatelessWidget {
                       Flexible(
                         child: Text(
                           address,
-                          style: TextStyle(fontSize: 16),
+                          style: TextStyle(fontSize: 16, color: Colors.white),
                           overflow: TextOverflow.ellipsis,
                           maxLines: 2,
                         ),
                       ),
                       Text(
                         'Price: $price pesos',
-                        style: TextStyle(fontSize: 16),
+                        style: TextStyle(fontSize: 16, color: Colors.white),
                       ),
                     ],
                   ),

@@ -1,12 +1,10 @@
 // ignore_for_file: camel_case_types
 
 import 'dart:io';
-
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:student_housing/main.dart';
-
 import 'package:student_housing/screens/dashboard.dart'; // Adjust import as needed
 import 'package:supabase_flutter/supabase_flutter.dart';
 
@@ -94,7 +92,7 @@ class _loginWebState extends State<loginWeb> {
                         'AD',
                         textAlign: TextAlign.center,
                         style: TextStyle(
-                          color: Color.fromARGB(255, 13, 6, 116),
+                          color: Color(0xff252F7C),
                           fontSize: 60,
                           letterSpacing: 0,
                           fontWeight: FontWeight.w900,

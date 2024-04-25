@@ -1,7 +1,9 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
+import 'package:student_housing/screens/createCard.dart';
 import 'package:student_housing/screens/dashboard.dart';
 import 'package:student_housing/screens/loginWeb.dart';
+import 'package:student_housing/screens/createCard.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
 Future<void> main() async {
@@ -21,10 +23,14 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    double screenWidth = MediaQuery.of(context).size.width;
+    double screenHeight = MediaQuery.of(context).size.height;
+
     return MaterialApp(
       routes: {
         loginWeb.routeName: (context) => const loginWeb(),
         dashboard.routeName: (context) => const dashboard(),
+        CreateCard.routeName: (context) => const CreateCard(),
       },
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
