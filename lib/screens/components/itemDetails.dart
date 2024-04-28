@@ -137,11 +137,13 @@ class _ItemDetailsState extends State<ItemDetails> {
                                 hintText: 'Hidden',
                               ),
                             ),
-                            TextButton(
-                                onPressed: () {
-                                  updateItem();
-                                },
-                                child: Text("update"))
+                            SizedBox(
+                              width: double.infinity,
+                              child: ElevatedButton(
+                                onPressed: updateItem,
+                                child: Text('Save'),
+                              ),
+                            ),
                           ],
                         ),
                       ),
