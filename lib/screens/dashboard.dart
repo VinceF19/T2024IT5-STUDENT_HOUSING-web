@@ -77,7 +77,6 @@ class _dashboardState extends State<dashboard> {
         child: Container(
           padding: const EdgeInsets.all(10),
           decoration: BoxDecoration(
-            color: Color.fromARGB(255, 250, 247, 246),
             borderRadius: BorderRadius.circular(20),
           ),
           child: Container(
@@ -103,6 +102,7 @@ class _dashboardState extends State<dashboard> {
                             address: items[index]['address'],
                             photoURL: items[index]['photoURL'],
                             price: items[index]['price'].toString(),
+                            ahidden: items[index]['hidden'],
                             onTap: () {
                               Navigator.push(
                                 context,
@@ -114,6 +114,7 @@ class _dashboardState extends State<dashboard> {
                                     address: items[index]['address'],
                                     photoURL: items[index]['photoURL'],
                                     price: items[index]['price'].toString(),
+                                    ahidden: items[index]['hidden'],
                                   ),
                                 ),
                               );

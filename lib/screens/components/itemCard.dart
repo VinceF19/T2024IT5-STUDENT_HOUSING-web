@@ -17,6 +17,7 @@ class ItemCard extends StatelessWidget {
     required this.photoURL,
     required this.price,
     required this.onTap,
+    required ahidden,
   });
 
   @override
