@@ -74,11 +74,15 @@ class ItemCard extends StatelessWidget {
                           height: 20,
                         ),
                         Flexible(
-                          child: Text(
-                            address,
-                            style: TextStyle(fontSize: 15, color: Colors.white),
-                            overflow: TextOverflow.ellipsis,
-                            maxLines: 2,
+                          child: Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Text(
+                              address,
+                              style:
+                                  TextStyle(fontSize: 15, color: Colors.white),
+                              overflow: TextOverflow.ellipsis,
+                              maxLines: 3,
+                            ),
                           ),
                         ),
                         Text(

@@ -151,33 +151,39 @@ class _dashboardState extends State<dashboard> {
                                       bottom: 10,
                                     ),
                                     child: SizedBox(
-                                      width: screenWidth * .3,
-                                      child: ItemCard(
-                                        id: items[index]['id'].toString(),
-                                        name: items[index]['name'],
-                                        description: items[index]
-                                            ['description'],
-                                        address: items[index]['address'],
-                                        photoURL: items[index]['photoURL'],
-                                        price: items[index]['price'].toString(),
-                                        ahidden: items[index]['hidden'],
-                                        onTap: () {
-                                          showDialog(
-                                            context: context,
-                                            builder: (context) => ItemDetails(
-                                              id: items[index]['id'].toString(),
-                                              name: items[index]['name'],
-                                              description: items[index]
-                                                  ['description'],
-                                              address: items[index]['address'],
-                                              photoURL: items[index]
-                                                  ['photoURL'],
-                                              price: items[index]['price']
-                                                  .toString(),
-                                              ahidden: items[index]['hidden'],
-                                            ),
-                                          );
-                                        },
+                                      width: screenWidth * .32,
+                                      child: Padding(
+                                        padding: const EdgeInsets.all(8.0),
+                                        child: ItemCard(
+                                          id: items[index]['id'].toString(),
+                                          name: items[index]['name'],
+                                          description: items[index]
+                                              ['description'],
+                                          address: items[index]['address'],
+                                          photoURL: items[index]['photoURL'],
+                                          price:
+                                              items[index]['price'].toString(),
+                                          ahidden: items[index]['hidden'],
+                                          onTap: () {
+                                            showDialog(
+                                              context: context,
+                                              builder: (context) => ItemDetails(
+                                                id: items[index]['id']
+                                                    .toString(),
+                                                name: items[index]['name'],
+                                                description: items[index]
+                                                    ['description'],
+                                                address: items[index]
+                                                    ['address'],
+                                                photoURL: items[index]
+                                                    ['photoURL'],
+                                                price: items[index]['price']
+                                                    .toString(),
+                                                ahidden: items[index]['hidden'],
+                                              ),
+                                            );
+                                          },
+                                        ),
                                       ),
                                     ),
                                   );

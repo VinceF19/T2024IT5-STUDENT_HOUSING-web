@@ -80,7 +80,7 @@ class _loginWebState extends State<loginWeb> {
         ),
         child: Center(
           child: Card(
-            margin: const EdgeInsets.all(100),
+            margin: const EdgeInsets.all(150),
             child: Padding(
               padding: const EdgeInsets.all(16.0),
               child: Column(

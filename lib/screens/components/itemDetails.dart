@@ -124,7 +124,13 @@ class _ItemDetailsState extends State<ItemDetails> {
                                 color: Color.fromARGB(255, 101, 191, 216),
                               ),
                             ),
-                            Text(widget.price),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Text("₱ "),
+                                Text(widget.price),
+                              ],
+                            ),
                             SizedBox(height: 8),
                             Text(
                               'Location:',
