@@ -1,8 +1,12 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:student_housing/main.dart';
 import 'package:student_housing/screens/components/itemDetails.dart';
 import 'package:student_housing/screens/loginWeb.dart';
 import 'package:student_housing/screens/components/itemCard.dart';
+import 'package:student_housing/screens/createCard.dart';
 
 class dashboard extends StatefulWidget {
   static const routeName = '/dashboard';
@@ -34,46 +38,60 @@ class _dashboardState extends State<dashboard> {
     double screenWidth = MediaQuery.of(context).size.width;
     double screenHeight = MediaQuery.of(context).size.height;
     return Scaffold(
+      extendBodyBehindAppBar: true,
       appBar: AppBar(
+        elevation: 0,
+        backgroundColor: Colors.black.withOpacity(.8),
         title: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           mainAxisSize: MainAxisSize.max,
           children: [
             const Text(
-              'Dashboard',
+              'Fernandez & Modequillo',
               style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
             ),
-            ElevatedButton(
-              onPressed: () {
-                supabase.auth.signOut();
-                Navigator.pushReplacementNamed(context, loginWeb.routeName);
-              },
-              child: const Text('Logout'),
+            Row(
+              children: [
+                ElevatedButton(
+                  onPressed: () {
+                    Navigator.pushReplacementNamed(
+                        context, CreateCard.routeName);
+                  },
+                  child: const Icon(Icons.add),
+                ),
+                const SizedBox(
+                  width: 20,
+                ),
+                ElevatedButton(
+                  onPressed: () {
+                    supabase.auth.signOut();
+                    Navigator.pushReplacementNamed(context, loginWeb.routeName);
+                  },
+                  child: const Text('Logout'),
+                ),
+              ],
             ),
           ],
         ),
       ),
       body: Container(
-        decoration: const BoxDecoration(
-          color: Color.fromARGB(170, 1, 43, 133),
+        decoration: BoxDecoration(
           image: DecorationImage(
             image: AssetImage(
               'lib/assets/addu.jpeg',
             ),
             fit: BoxFit.cover,
-            opacity: 0.2,
+            opacity: 0.8,
           ),
         ),
         width: screenWidth,
         height: screenHeight,
-        padding: const EdgeInsets.all(20),
         child: Container(
-          padding: const EdgeInsets.all(10),
+          padding: const EdgeInsets.all(8),
           decoration: BoxDecoration(
-            color: const Color.fromARGB(255, 236, 223, 196),
-            borderRadius: BorderRadius.circular(20),
+            borderRadius: BorderRadius.circular(5),
           ),
-          child: Container(
+          child: SizedBox(
             width: screenWidth,
             height: screenHeight,
             child: ListView(
@@ -83,32 +101,40 @@ class _dashboardState extends State<dashboard> {
                   child: Wrap(
                     crossAxisAlignment: WrapCrossAlignment.center,
                     spacing: 15,
-                    alignment: WrapAlignment.start,
+                    alignment: WrapAlignment.spaceEvenly,
                     children: List.generate(
                       items.length,
                       (index) {
-                        return ItemCard(
-                          id: items[index]['id'].toString(),
-                          name: items[index]['name'],
-                          description: items[index]['description'],
-                          address: items[index]['address'],
-                          photoURL: items[index]['photoURL'],
-                          price: items[index]['price'].toString(),
-                          onTap: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => ItemDetails(
-                                  id: items[index]['id'].toString(),
-                                  name: items[index]['name'],
-                                  description: items[index]['description'],
-                                  address: items[index]['address'],
-                                  photoURL: items[index]['photoURL'],
-                                  price: items[index]['price'].toString(),
-                                ),
-                              ),
-                            );
-                          },
+                        return Padding(
+                          padding: const EdgeInsets.all(5.0),
+                          child: SizedBox(
+                            width: screenWidth * .4,
+                            child: ItemCard(
+                              id: items[index]['id'].toString(),
+                              name: items[index]['name'],
+                              description: items[index]['description'],
+                              address: items[index]['address'],
+                              photoURL: items[index]['photoURL'],
+                              price: items[index]['price'].toString(),
+                              ahidden: items[index]['hidden'],
+                              onTap: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => ItemDetails(
+                                      id: items[index]['id'].toString(),
+                                      name: items[index]['name'],
+                                      description: items[index]['description'],
+                                      address: items[index]['address'],
+                                      photoURL: items[index]['photoURL'],
+                                      price: items[index]['price'].toString(),
+                                      ahidden: items[index]['hidden'],
+                                    ),
+                                  ),
+                                );
+                              },
+                            ),
+                          ),
                         );
                       },
                     ).toList(),

@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
+import 'package:student_housing/screens/createCard.dart';
 import 'package:student_housing/screens/dashboard.dart';
 import 'package:student_housing/screens/loginWeb.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
@@ -25,14 +26,9 @@ class MyApp extends StatelessWidget {
       routes: {
         loginWeb.routeName: (context) => const loginWeb(),
         dashboard.routeName: (context) => const dashboard(),
+        CreateCard.routeName: (context) => const CreateCard(),
       },
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-          useMaterial3: true,
-          inputDecorationTheme: const InputDecorationTheme(
-            focusedBorder: UnderlineInputBorder(
-                borderSide: BorderSide(color: Colors.white)),
-          )),
       home: const loginWeb(),
     );
   }
