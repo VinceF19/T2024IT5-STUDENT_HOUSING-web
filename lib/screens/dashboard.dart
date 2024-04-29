@@ -76,7 +76,7 @@ class _dashboardState extends State<dashboard> {
                   child: const Text(
                     'Logout',
                     style: TextStyle(
-                      color: Colors.blue, // Text color
+                      color: Colors.blue,
                     ),
                   ),
                 ),

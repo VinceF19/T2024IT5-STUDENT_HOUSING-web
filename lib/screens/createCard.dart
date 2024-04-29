@@ -91,7 +91,7 @@ class _CreateCardState extends State<CreateCard> {
                   child: const Text(
                     'Logout',
                     style: TextStyle(
-                      color: Colors.blue, // Text color
+                      color: Colors.blue,
                     ),
                   ),
                 ),
@@ -171,9 +171,7 @@ class _CreateCardState extends State<CreateCard> {
                         ),
                         style: TextStyle(fontSize: 15, color: Colors.white),
                       ),
-                      SizedBox(
-                          height:
-                              16), // Adding space between TextField and button
+                      SizedBox(height: 16),
                       TextField(
                         controller: aaddress,
                         decoration: InputDecoration(
@@ -189,9 +187,7 @@ class _CreateCardState extends State<CreateCard> {
                         ),
                         style: TextStyle(fontSize: 15, color: Colors.white),
                       ),
-                      SizedBox(
-                          height:
-                              16), // Adding space between TextField and button
+                      SizedBox(height: 16),
                       TextField(
                         controller: adescription,
                         decoration: InputDecoration(
@@ -207,9 +203,7 @@ class _CreateCardState extends State<CreateCard> {
                         ),
                         style: TextStyle(fontSize: 15, color: Colors.white),
                       ),
-                      SizedBox(
-                          height:
-                              16), // Adding space between TextField and button
+                      SizedBox(height: 16),
                       TextField(
                         controller: aprice,
                         decoration: InputDecoration(
@@ -225,9 +219,7 @@ class _CreateCardState extends State<CreateCard> {
                         ),
                         style: TextStyle(fontSize: 15, color: Colors.white),
                       ),
-                      SizedBox(
-                          height:
-                              16), // Adding space between TextField and button
+                      SizedBox(height: 16),
                       ElevatedButton(
                         onPressed: _uploadPhoto,
                         child: Text(
@@ -235,7 +227,7 @@ class _CreateCardState extends State<CreateCard> {
                           style: TextStyle(fontSize: 15, color: Colors.blue),
                         ),
                       ),
-                      SizedBox(height: 16), // Adding space between buttons
+                      SizedBox(height: 16),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: [
