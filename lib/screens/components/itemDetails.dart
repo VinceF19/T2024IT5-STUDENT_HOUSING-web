@@ -65,26 +65,18 @@ class _ItemDetailsState extends State<ItemDetails> {
     double screenWidth = MediaQuery.of(context).size.width;
     double screenHeight = MediaQuery.of(context).size.height;
 
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('Item Details'),
-      ),
-      body: Container(
-        width: screenWidth,
-        height: screenHeight,
-        decoration: const BoxDecoration(
-          color: Color(0xf252F7C),
-          image: DecorationImage(
-            image: AssetImage(
-              'lib/assets/addu.jpeg',
-            ),
-            fit: BoxFit.cover,
-            opacity: 0.2,
-          ),
-        ),
+    return Dialog(
+      backgroundColor: Colors.transparent,
+      elevation: 0,
+      child: Container(
+        width: screenWidth * .8,
+        height: screenHeight * .8,
+        decoration: BoxDecoration(
+            color: Colors.white.withOpacity(.5),
+            borderRadius: BorderRadius.circular(10)),
         child: SingleChildScrollView(
           child: Padding(
-            padding: const EdgeInsets.all(20.0),
+            padding: const EdgeInsets.all(15.0),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -111,31 +103,45 @@ class _ItemDetailsState extends State<ItemDetails> {
                               'Item Name:',
                               style: TextStyle(
                                 fontWeight: FontWeight.bold,
+                                color: Color.fromARGB(255, 101, 191, 216),
                               ),
                             ),
                             Text(widget.name),
                             SizedBox(height: 8),
                             Text(
                               'Description:',
-                              style: TextStyle(fontWeight: FontWeight.bold),
+                              style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                                color: Color.fromARGB(255, 101, 191, 216),
+                              ),
                             ),
                             Text(widget.description),
                             SizedBox(height: 8),
                             Text(
                               'Price:',
-                              style: TextStyle(fontWeight: FontWeight.bold),
+                              style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                                color: Color.fromARGB(255, 101, 191, 216),
+                              ),
                             ),
                             Text(widget.price),
                             SizedBox(height: 8),
                             Text(
                               'Location:',
-                              style: TextStyle(fontWeight: FontWeight.bold),
+                              style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                                color: Color.fromARGB(255, 101, 191, 216),
+                              ),
                             ),
+                            Text(widget.address),
                             TextField(
                               controller: _ahiddenController,
                               decoration: InputDecoration(
                                 hintText: 'Hidden',
                               ),
+                            ),
+                            SizedBox(
+                              height: 10,
                             ),
                             SizedBox(
                               width: double.infinity,

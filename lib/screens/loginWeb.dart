@@ -72,7 +72,7 @@ class _loginWebState extends State<loginWeb> {
           color: Color.fromARGB(170, 1, 43, 133),
           image: DecorationImage(
             image: AssetImage(
-              'lib/assets/addu.jpeg',
+              'lib/assets/1.jpeg',
             ),
             fit: BoxFit.cover,
             opacity: 0.8,
