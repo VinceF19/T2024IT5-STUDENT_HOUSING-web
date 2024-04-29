@@ -75,7 +75,7 @@ class _loginWebState extends State<loginWeb> {
               'lib/assets/addu.jpeg',
             ),
             fit: BoxFit.cover,
-            opacity: 0.2,
+            opacity: 0.8,
           ),
         ),
         child: Center(

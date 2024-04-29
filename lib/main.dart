@@ -29,12 +29,6 @@ class MyApp extends StatelessWidget {
         CreateCard.routeName: (context) => const CreateCard(),
       },
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-          useMaterial3: true,
-          inputDecorationTheme: const InputDecorationTheme(
-            focusedBorder: UnderlineInputBorder(
-                borderSide: BorderSide(color: Colors.white)),
-          )),
       home: const loginWeb(),
     );
   }
