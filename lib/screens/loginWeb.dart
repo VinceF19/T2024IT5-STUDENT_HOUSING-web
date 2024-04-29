@@ -121,14 +121,14 @@ class _loginWebState extends State<loginWeb> {
                     ),
                   ),
                   Padding(
-                    padding: const EdgeInsets.all(50.0),
+                    padding: const EdgeInsets.all(0),
                     child: TextField(
                       decoration: InputDecoration(labelText: 'Email'),
                     ),
                   ),
                   SizedBox(height: 16),
                   Padding(
-                    padding: const EdgeInsets.all(50.0),
+                    padding: const EdgeInsets.all(0),
                     child: TextField(
                       obscureText: true,
                       decoration: InputDecoration(labelText: 'Password'),
@@ -136,19 +136,24 @@ class _loginWebState extends State<loginWeb> {
                   ),
                   SizedBox(height: 16),
                   ElevatedButton(
-                    onPressed: () async {
-                      try {
-                        if (!kIsWeb && (Platform.isAndroid || Platform.isIOS)) {
-                          return nativeGoogleSignIn();
+                      onPressed: () async {
+                        try {
+                          if (!kIsWeb &&
+                              (Platform.isAndroid || Platform.isIOS)) {
+                            return nativeGoogleSignIn();
+                          }
+                          await supabase.auth
+                              .signInWithOAuth(OAuthProvider.google);
+                        } catch (error) {
+                          print('Error signing in with Google: $error');
                         }
-                        await supabase.auth
-                            .signInWithOAuth(OAuthProvider.google);
-                      } catch (error) {
-                        print('Error signing in with Google: $error');
-                      }
-                    },
-                    child: const Text("Sign in with Google"),
-                  ),
+                      },
+                      child: const Text(
+                        "Sign in with Google",
+                        style: TextStyle(
+                          color: Colors.blue,
+                        ),
+                      )),
                 ],
               ),
             ),

@@ -73,7 +73,12 @@ class _dashboardState extends State<dashboard> {
                     supabase.auth.signOut();
                     Navigator.pushReplacementNamed(context, loginWeb.routeName);
                   },
-                  child: const Text('Logout'),
+                  child: const Text(
+                    'Logout',
+                    style: TextStyle(
+                      color: Colors.blue, // Text color
+                    ),
+                  ),
                 ),
               ],
             ),

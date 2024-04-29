@@ -72,7 +72,7 @@ class _ItemDetailsState extends State<ItemDetails> {
         width: screenWidth * .8,
         height: screenHeight * .8,
         decoration: BoxDecoration(
-            color: Colors.white.withOpacity(.5),
+            color: Color.fromARGB(255, 3, 32, 161).withOpacity(.5),
             borderRadius: BorderRadius.circular(10)),
         child: SingleChildScrollView(
           child: Padding(
@@ -83,13 +83,13 @@ class _ItemDetailsState extends State<ItemDetails> {
                 Center(
                   child: SizedBox(
                       width: screenWidth * .3,
-                      height: screenHeight * .3,
+                      height: screenHeight * .5,
                       child: Image.network(
                         widget.photoURL,
                         fit: BoxFit.fill,
                       )),
                 ),
-                SizedBox(height: 30),
+                SizedBox(height: 10),
                 SizedBox(
                   width: screenWidth,
                   child: Padding(
@@ -103,7 +103,7 @@ class _ItemDetailsState extends State<ItemDetails> {
                               'Item Name:',
                               style: TextStyle(
                                 fontWeight: FontWeight.bold,
-                                color: Color.fromARGB(255, 101, 191, 216),
+                                color: Color.fromARGB(255, 3, 32, 161),
                               ),
                             ),
                             Text(widget.name),
@@ -112,7 +112,7 @@ class _ItemDetailsState extends State<ItemDetails> {
                               'Description:',
                               style: TextStyle(
                                 fontWeight: FontWeight.bold,
-                                color: Color.fromARGB(255, 101, 191, 216),
+                                color: Color.fromARGB(255, 3, 32, 161),
                               ),
                             ),
                             Text(widget.description),
@@ -121,7 +121,7 @@ class _ItemDetailsState extends State<ItemDetails> {
                               'Price:',
                               style: TextStyle(
                                 fontWeight: FontWeight.bold,
-                                color: Color.fromARGB(255, 101, 191, 216),
+                                color: Color.fromARGB(255, 3, 32, 161),
                               ),
                             ),
                             Row(
@@ -136,7 +136,7 @@ class _ItemDetailsState extends State<ItemDetails> {
                               'Location:',
                               style: TextStyle(
                                 fontWeight: FontWeight.bold,
-                                color: Color.fromARGB(255, 101, 191, 216),
+                                color: Color.fromARGB(255, 3, 32, 161),
                               ),
                             ),
                             Text(widget.address),
@@ -153,7 +153,12 @@ class _ItemDetailsState extends State<ItemDetails> {
                               width: double.infinity,
                               child: ElevatedButton(
                                 onPressed: updateItem,
-                                child: Text('Save'),
+                                child: Text(
+                                  'Save',
+                                  style: TextStyle(
+                                      fontSize: 15,
+                                      color: Color.fromARGB(255, 2, 4, 146)),
+                                ),
                               ),
                             ),
                           ],
