@@ -1,5 +1,7 @@
 // ignore_for_file: prefer_const_constructors
 
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'package:student_housing/main.dart';
 
@@ -68,106 +70,109 @@ class _ItemDetailsState extends State<ItemDetails> {
     return Dialog(
       backgroundColor: Colors.transparent,
       elevation: 0,
-      child: Container(
-        width: screenWidth * .8,
-        height: screenHeight * .8,
-        decoration: BoxDecoration(
-            color: Color.fromARGB(255, 3, 32, 161).withOpacity(.5),
-            borderRadius: BorderRadius.circular(10)),
-        child: SingleChildScrollView(
-          child: Padding(
-            padding: const EdgeInsets.all(15.0),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Center(
-                  child: SizedBox(
-                      width: screenWidth * .3,
-                      height: screenHeight * .5,
-                      child: Image.network(
-                        widget.photoURL,
-                        fit: BoxFit.fill,
-                      )),
-                ),
-                SizedBox(height: 10),
-                SizedBox(
-                  width: screenWidth,
-                  child: Padding(
-                    padding: const EdgeInsets.all(20),
-                    child: Card(
-                      child: Padding(
-                        padding: const EdgeInsets.all(20),
-                        child: Column(
-                          children: [
-                            Text(
-                              'Item Name:',
-                              style: TextStyle(
-                                fontWeight: FontWeight.bold,
-                                color: Color.fromARGB(255, 3, 32, 161),
-                              ),
-                            ),
-                            Text(widget.name),
-                            SizedBox(height: 8),
-                            Text(
-                              'Description:',
-                              style: TextStyle(
-                                fontWeight: FontWeight.bold,
-                                color: Color.fromARGB(255, 3, 32, 161),
-                              ),
-                            ),
-                            Text(widget.description),
-                            SizedBox(height: 8),
-                            Text(
-                              'Price:',
-                              style: TextStyle(
-                                fontWeight: FontWeight.bold,
-                                color: Color.fromARGB(255, 3, 32, 161),
-                              ),
-                            ),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Text("₱ "),
-                                Text(widget.price),
-                              ],
-                            ),
-                            SizedBox(height: 8),
-                            Text(
-                              'Location:',
-                              style: TextStyle(
-                                fontWeight: FontWeight.bold,
-                                color: Color.fromARGB(255, 3, 32, 161),
-                              ),
-                            ),
-                            Text(widget.address),
-                            TextField(
-                              controller: _ahiddenController,
-                              decoration: InputDecoration(
-                                hintText: 'Hidden',
-                              ),
-                            ),
-                            SizedBox(
-                              height: 10,
-                            ),
-                            SizedBox(
-                              width: double.infinity,
-                              child: ElevatedButton(
-                                onPressed: updateItem,
-                                child: Text(
-                                  'Save',
-                                  style: TextStyle(
-                                      fontSize: 15,
-                                      color: Color.fromARGB(255, 2, 4, 146)),
+      child: BackdropFilter(
+        filter: ImageFilter.blur(sigmaX: 5, sigmaY: 5),
+        child: Container(
+          width: screenWidth * .8,
+          height: screenHeight * .85,
+          decoration: BoxDecoration(
+              color: Colors.black.withOpacity(.5),
+              borderRadius: BorderRadius.circular(10)),
+          child: SingleChildScrollView(
+            child: Padding(
+              padding: const EdgeInsets.all(15.0),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Center(
+                    child: SizedBox(
+                        width: screenWidth * .5,
+                        height: screenHeight * .4,
+                        child: Image.network(
+                          widget.photoURL,
+                          fit: BoxFit.fill,
+                        )),
+                  ),
+                  SizedBox(height: 10),
+                  SizedBox(
+                    width: screenWidth,
+                    child: Padding(
+                      padding: const EdgeInsets.all(20),
+                      child: Card(
+                        child: Padding(
+                          padding: const EdgeInsets.all(20),
+                          child: Column(
+                            children: [
+                              Text(
+                                'Item Name:',
+                                style: TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                  color: Color.fromARGB(255, 3, 32, 161),
                                 ),
                               ),
-                            ),
-                          ],
+                              Text(widget.name),
+                              SizedBox(height: 8),
+                              Text(
+                                'Description:',
+                                style: TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                  color: Color.fromARGB(255, 3, 32, 161),
+                                ),
+                              ),
+                              Text(widget.description),
+                              SizedBox(height: 8),
+                              Text(
+                                'Price:',
+                                style: TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                  color: Color.fromARGB(255, 3, 32, 161),
+                                ),
+                              ),
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Text("₱ "),
+                                  Text(widget.price),
+                                ],
+                              ),
+                              SizedBox(height: 8),
+                              Text(
+                                'Location:',
+                                style: TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                  color: Color.fromARGB(255, 3, 32, 161),
+                                ),
+                              ),
+                              Text(widget.address),
+                              TextField(
+                                controller: _ahiddenController,
+                                decoration: InputDecoration(
+                                  hintText: 'Hidden',
+                                ),
+                              ),
+                              SizedBox(
+                                height: 10,
+                              ),
+                              SizedBox(
+                                width: double.infinity,
+                                child: ElevatedButton(
+                                  onPressed: updateItem,
+                                  child: Text(
+                                    'Save',
+                                    style: TextStyle(
+                                        fontSize: 15,
+                                        color: Color.fromARGB(255, 2, 4, 146)),
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
                         ),
                       ),
                     ),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
           ),
         ),
