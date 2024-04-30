@@ -1,4 +1,4 @@
-// ignore_for_file: prefer_const_constructors
+// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
 import 'dart:js';
 import 'dart:ui';
@@ -59,6 +59,10 @@ class _dashboardState extends State<dashboard> {
             Row(
               children: [
                 ElevatedButton(
+                  style: ButtonStyle(
+                    backgroundColor:
+                        MaterialStatePropertyAll(Colors.transparent),
+                  ),
                   onPressed: () {
                     Navigator.pushReplacementNamed(
                         context, CreateCard.routeName);
@@ -69,16 +73,15 @@ class _dashboardState extends State<dashboard> {
                   width: 20,
                 ),
                 ElevatedButton(
+                  style: ButtonStyle(
+                    backgroundColor:
+                        MaterialStatePropertyAll(Colors.transparent),
+                  ),
                   onPressed: () {
                     supabase.auth.signOut();
                     Navigator.pushReplacementNamed(context, loginWeb.routeName);
                   },
-                  child: const Text(
-                    'Logout',
-                    style: TextStyle(
-                      color: Colors.blue,
-                    ),
-                  ),
+                  child: const Text('Logout'),
                 ),
               ],
             ),
@@ -104,34 +107,12 @@ class _dashboardState extends State<dashboard> {
               child: Column(
                 children: [
                   Container(
-                    width: screenWidth,
-                    height: 100,
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: const [
-                        Text(
-                          'AD',
-                          textAlign: TextAlign.center,
-                          style: TextStyle(
-                            color: Color(0xff252F7C),
-                            fontSize: 60,
-                            letterSpacing: 0,
-                            fontWeight: FontWeight.w900,
-                          ),
-                        ),
-                        Text(
-                          'DORMS',
-                          textAlign: TextAlign.center,
-                          style: TextStyle(
-                            color: Color.fromARGB(255, 101, 191, 216),
-                            fontSize: 60,
-                            letterSpacing: 0,
-                            fontWeight: FontWeight.w900,
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
+                      width: screenWidth,
+                      height: 100,
+                      child: Image.asset(
+                        'lib/assets/AD.PNG',
+                        fit: BoxFit.contain,
+                      )),
                   Container(
                     padding: const EdgeInsets.all(8),
                     decoration: BoxDecoration(
@@ -157,38 +138,32 @@ class _dashboardState extends State<dashboard> {
                                     ),
                                     child: SizedBox(
                                       width: screenWidth * .32,
-                                      child: Padding(
-                                        padding: const EdgeInsets.all(8.0),
-                                        child: ItemCard(
-                                          id: items[index]['id'].toString(),
-                                          name: items[index]['name'],
-                                          description: items[index]
-                                              ['description'],
-                                          address: items[index]['address'],
-                                          photoURL: items[index]['photoURL'],
-                                          price:
-                                              items[index]['price'].toString(),
-                                          ahidden: items[index]['hidden'],
-                                          onTap: () {
-                                            showDialog(
-                                              context: context,
-                                              builder: (context) => ItemDetails(
-                                                id: items[index]['id']
-                                                    .toString(),
-                                                name: items[index]['name'],
-                                                description: items[index]
-                                                    ['description'],
-                                                address: items[index]
-                                                    ['address'],
-                                                photoURL: items[index]
-                                                    ['photoURL'],
-                                                price: items[index]['price']
-                                                    .toString(),
-                                                ahidden: items[index]['hidden'],
-                                              ),
-                                            );
-                                          },
-                                        ),
+                                      child: ItemCard(
+                                        id: items[index]['id'].toString(),
+                                        name: items[index]['name'],
+                                        description: items[index]
+                                            ['description'],
+                                        address: items[index]['address'],
+                                        photoURL: items[index]['photoURL'],
+                                        price: items[index]['price'].toString(),
+                                        ahidden: items[index]['hidden'],
+                                        onTap: () {
+                                          showDialog(
+                                            context: context,
+                                            builder: (context) => ItemDetails(
+                                              id: items[index]['id'].toString(),
+                                              name: items[index]['name'],
+                                              description: items[index]
+                                                  ['description'],
+                                              address: items[index]['address'],
+                                              photoURL: items[index]
+                                                  ['photoURL'],
+                                              price: items[index]['price']
+                                                  .toString(),
+                                              ahidden: items[index]['hidden'],
+                                            ),
+                                          );
+                                        },
                                       ),
                                     ),
                                   );
