@@ -74,6 +74,10 @@ class _CreateCardState extends State<CreateCard> {
             Row(
               children: [
                 ElevatedButton(
+                  style: ButtonStyle(
+                    backgroundColor:
+                        MaterialStatePropertyAll(Colors.transparent),
+                  ),
                   onPressed: () {
                     Navigator.pushReplacementNamed(
                         context, CreateCard.routeName);
@@ -84,16 +88,15 @@ class _CreateCardState extends State<CreateCard> {
                   width: 20,
                 ),
                 ElevatedButton(
+                  style: ButtonStyle(
+                    backgroundColor:
+                        MaterialStatePropertyAll(Colors.transparent),
+                  ),
                   onPressed: () {
                     supabase.auth.signOut();
                     Navigator.pushReplacementNamed(context, loginWeb.routeName);
                   },
-                  child: const Text(
-                    'Logout',
-                    style: TextStyle(
-                      color: Colors.blue,
-                    ),
-                  ),
+                  child: const Text('Logout'),
                 ),
               ],
             ),
@@ -154,7 +157,7 @@ class _CreateCardState extends State<CreateCard> {
                 child: Padding(
                   padding: EdgeInsets.all(8.0),
                   child: Column(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: [
                       TextField(
                         controller: aname,
